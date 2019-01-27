@@ -3,7 +3,7 @@
 #include "PlatformerFightingGameMode.h"
 #include "PlatformerFightingCharacter.h"
 #include "Engine/World.h"
-#include "../../../../Programs/UE_4.20/Engine/Plugins/MovieScene/ActorSequence/Source/ActorSequence/Private/ActorSequencePrivatePCH.h"
+#include "../../../../Programs/UE_4.21/Engine/Plugins/MovieScene/ActorSequence/Source/ActorSequence/Private/ActorSequencePrivatePCH.h"
 
 
 APlatformerFightingGameMode::APlatformerFightingGameMode()
