@@ -36,12 +36,16 @@ class APlatformerFightingCharacter : public APaperCharacter
 	TSubclassOf<AActor> ParticlesClass;
 
 	UPROPERTY(EditAnywhere)
+	UParticleSystem* ParticleTemplate;
+
+	UPROPERTY(EditAnywhere)
 	float ImpulseRadius;
 
 	UPROPERTY(EditAnywhere)
 	float ImpulseForce;
 
 	UTextRenderComponent* TextComponent;
+	AActor* SpawnedParticles;
 
 	void Tick(float DeltaSeconds) override;
 

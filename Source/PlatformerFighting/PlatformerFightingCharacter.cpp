@@ -173,10 +173,16 @@ bool APlatformerFightingCharacter::ServerMakeImpulse_Validate()
 
 void APlatformerFightingCharacter::ClientOnImpulse_Implementation()
 {
-	auto location = GetActorLocation();
-	GetWorld()->SpawnActor(ParticlesClass, &location)
-		->GetRootComponent()
-		->AttachToComponent(RootComponent, FAttachmentTransformRules::KeepWorldTransform);
+	auto world = GetWorld();
+	if (SpawnedParticles != nullptr)
+	{
+		world->DestroyActor(SpawnedParticles);
+	}
+
+	/*UGameplayStatics::SpawnEmitterAttached(ParticleTemplate, RootComponent);*/
+	auto location = FVector(0, 0, 0);
+	SpawnedParticles = world->SpawnActor(ParticlesClass, &location);
+	SpawnedParticles->AttachToActor(this, FAttachmentTransformRules::KeepRelativeTransform);
 }
 
 void APlatformerFightingCharacter::UpdateCharacter()
